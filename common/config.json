@@ -1,0 +1,15 @@
+{
+  "restapi": {
+    "driver": "mysql",
+    "connection": {
+      "host": "localhost",
+      "user": "root",
+      "password": "*****",
+      "database": "..."
+    },
+    "pagesize": 20,
+    "users": [
+      { "name": "admin", "pass": "admin" }
+    ]
+  }
+}
