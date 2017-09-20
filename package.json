@@ -12,9 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "cache-manager": "^2.4.0",
     "debug": "^2.6.8",
-    "formidable": "^1.1.1",
     "knex": "^0.13.0",
     "mssql": "^4.0.4",
     "mysql": "^2.14.1"

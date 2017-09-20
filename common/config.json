@@ -5,7 +5,7 @@
       "host": "localhost",
       "user": "root",
       "password": "*****",
-      "database": "..."
+      "database": "*****"
     },
     "pagesize": 20,
     "users": [
