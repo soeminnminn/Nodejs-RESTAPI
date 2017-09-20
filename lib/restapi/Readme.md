@@ -1,7 +1,7 @@
 # Node JS REST API
 
 # Config
-``` js
+``` javascript
 {
   "driver": "mysql",
   "connection": {
@@ -292,22 +292,22 @@ Add custom model.
 After call api.init(config).
 
 Can apply a model by name only. If you add by name only, you must set 'modelBasePath' in config.
-```
+``` javascript
 api.applyModel('modelName#1');
 ```
 
 Can apply a model object:
-```
+``` javascript
 api.applyModel('modelName#2', { model object });
 ```
 
 Can apply a model object:
-```
+``` javascript
 api.applyModel({ "name": "modelName#3", "model": { model object } });
 ```
 
 Can apply many model objects:
-```
+``` javascript
 api.applyModel(
   { "name": "modelName#4", "model": { model object } }, 
   { "name": "modelName#5", "model": { model object } }, 
@@ -316,7 +316,7 @@ api.applyModel(
 ```
 
 Can apply models as array:
-```
+``` javascript
 api.applyModel([
   { "name": "modelName#7", "model": { model object } },
   { "name": "modelName#8", "model": { model object } },
@@ -344,6 +344,35 @@ You will apply 'users' in api config.
 
 ## custom authentication
 You will apply 'isAuthorized' method in api config.
+
+# Execute
+Direct access executing.
+``` javascript
+var restapi = require('./../../lib/restapi');
+  ...
+restapi.execute(
+  // Method [optional] (default: 'GET')
+  'GET', 
+  // Object Name / Table name [required]
+  'user',
+  // Arguments
+  {
+    'data': {},
+    'columns': [],
+    'where': [],
+    'join': '',
+    'group': '',
+    'having': '',
+    'order': '',
+    'start': 0,
+    'length': 10
+  },
+  // Callback 
+  function(err, result) {
+
+  }
+);
+```
 
 # TODO :
 
