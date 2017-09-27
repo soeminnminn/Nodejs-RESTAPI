@@ -22,7 +22,7 @@
 ```
 ### required
 
- - *driver* (mysql, mssql, postgresql, sqlite3, oracle) : What driver you will used. 
+ - *driver* (mysql, mssql, postgresql, sqlite3, oracle) : What driver you will used.
 
  - *connection* : Config for database connection.
 
@@ -137,6 +137,17 @@ With the "*columns*" parameter you can select specific columns.
 ```
 GET: http://localhost:3000/api/user?columns=name,firstname,lastname
 SQL: SELECT name, firstname, lastname FROM user
+
+RESULT: {user: [JSON]}
+```
+
+## distinct
+
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+
+```
+GET: http://localhost:3000/api/user?distinct
+SQL: SELECT DISTINCT * FROM user
 
 RESULT: {user: [JSON]}
 ```
@@ -269,7 +280,7 @@ RESULT: {number of affected rows}
 PUT: http://localhost:3000/api/user
 BODY: { "id": 1, "name": "helloworld","firstname": "hello", "lastname": "world", "password": "******" }
 SQL: UPDATE user SET name = 'helloworld', firstname = 'hello', lastname = 'world', password = '******' WHERE id = 1
-     
+
      [When UPDATE not success]
      INSERT INTO user (name, firstname, lastname, password) VALUES ('helloworld', 'hello', 'world', "******")
 
@@ -309,8 +320,8 @@ api.applyModel({ "name": "modelName#3", "model": { model object } });
 Can apply many model objects:
 ``` javascript
 api.applyModel(
-  { "name": "modelName#4", "model": { model object } }, 
-  { "name": "modelName#5", "model": { model object } }, 
+  { "name": "modelName#4", "model": { model object } },
+  { "name": "modelName#5", "model": { model object } },
   { "name": "modelName#6", "model": { model object } }
 );
 ```
@@ -352,7 +363,7 @@ var restapi = require('./../../lib/restapi');
   ...
 restapi.execute(
   // Method [optional] (default: 'GET')
-  'GET', 
+  'GET',
   // Object Name / Table name [required]
   'user',
   // Arguments
@@ -367,7 +378,7 @@ restapi.execute(
     'start': 0,
     'length': 10
   },
-  // Callback 
+  // Callback
   function(err, result) {
 
   }
@@ -377,9 +388,9 @@ restapi.execute(
 # TODO :
 
   - [ ] Oracle filters
-  
+
   - [ ] Relational Supports
-  
+
 # Refrences
 
  - [Knexjs](http://knexjs.org/) : SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, and Oracle.
