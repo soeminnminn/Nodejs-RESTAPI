@@ -11,10 +11,10 @@
   "author": "SMM",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "debug": "^2.6.8",
+    "body-parser": "^1.18.2",
+    "debug": "^3.1.0",
     "knex": "^0.13.0",
-    "mssql": "^4.0.4",
-    "mysql": "^2.14.1"
+    "mssql": "^4.1.0",
+    "mysql": "^2.15.0"
   }
 }
