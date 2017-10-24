@@ -4,8 +4,8 @@
     "connection": {
       "host": "localhost",
       "user": "root",
-      "password": "*****",
-      "database": "*****"
+      "password": "******",
+      "database": "******"
     },
     "pagesize": 20,
     "users": [
