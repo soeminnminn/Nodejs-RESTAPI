@@ -17,6 +17,7 @@
   "bodyTranform": function(req, body, params) {},
   "modelBasePath": '/path/to/models/',
   "users": [ { "name": "user", "pass": "*****" } ],
+  "secrets": [ "secret key" ];
   "isAuthorized": function(credentials) {}
 }
 ```
@@ -41,6 +42,8 @@
  - *modelBasePath* (string) : Path of custom models folder.
 
  - *users* (Array|object) : Basic authentication users.
+
+ - *secrets* (Array) : Csrf authentication secret keys.
 
  - *isAuthorized* (function) : Custom authentication method.
 
@@ -352,6 +355,21 @@ api.applyModel([
 
 ## basic authentication
 You will apply 'users' in api config.
+
+## Csrf authentication
+Use csrf token in api. You will apply 'secrets' in api config. 'users' config also required.
+
+### Csrf Secret generator
+```
+GET: /api/--gensecret
+RESULT: { "secret": "secret key" }
+```
+
+### Csrf token generator
+```
+GET: /api/--gentoken?secret=******
+RESULT: { "token": "token key" }
+```
 
 ## custom authentication
 You will apply 'isAuthorized' method in api config.
