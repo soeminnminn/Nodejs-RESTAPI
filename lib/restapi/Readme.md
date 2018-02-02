@@ -351,6 +351,11 @@ api.applyModel([
 **callback**
   Node result callback.
 
+## Model Url format
+```
+GET: http://localhost:3000/api/<modelName>/<modelMethod>
+```
+
 # Authentication
 
 ## basic authentication
@@ -401,6 +406,12 @@ restapi.execute(
 
   }
 );
+```
+
+# Relation
+```
+GET: http://localhost:3000/api/user?include=city&relation=user.cityid,city.id
+RESULT: {user: [JSON with city object ]}
 ```
 
 # TODO :
