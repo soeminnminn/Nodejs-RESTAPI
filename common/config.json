@@ -10,6 +10,10 @@
     "pagesize": 20,
     "users": [
       { "name": "admin", "pass": "admin" }
-    ]
+    ],
+    "csrf": {
+      "tokenkey": "CSRF-Token",
+      "secrets": [ "DGIgK4BFLwIp5hIMRjnmQj-E" ]
+    }
   }
 }

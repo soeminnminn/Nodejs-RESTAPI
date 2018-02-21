@@ -31,14 +31,18 @@ restapi.applyModel([
 */
 
 app.use('/', function(req, res, next) {
-  //var csrf = new token();
-  //var result = csrf.secretSync();
-  //var secret = 'vPpdZyWoQv77J8tozFvmUgrF';
-  //var result = csrf.create(secret);
-  //var tokenVal = 'm8LL8nyG-Csd66-1j4ywJNnSkV-D7uLdxyMI';
-  //var result = csrf.verify(secret, tokenVal);
   //res.end("" + result);
-  res.end("It's work!");
+  restapi.execute('get', 'user', { 'q': 'From Router!' })
+    .then(function(result) {
+      res.write(JSON.stringify(result));
+      res.end();
+
+    }).catch(function(err) {
+      console.log(err);
+      res.write(JSON.stringify(err));
+      res.end();
+    });
+  //res.end("It's work!");
 });
 
 module.exports = app.init();

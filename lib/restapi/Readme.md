@@ -351,11 +351,6 @@ api.applyModel([
 **callback**
   Node result callback.
 
-## Model Url format
-```
-GET: http://localhost:3000/api/<modelName>/<modelMethod>
-```
-
 # Authentication
 
 ## basic authentication
@@ -379,8 +374,20 @@ RESULT: { "token": "token key" }
 ## custom authentication
 You will apply 'isAuthorized' method in api config.
 
-# Execute
+# Functions
+
+## init
+Initialize api library. 
+Parameter : Config
+
+## execute
+Parameters  : Method [optional] (default: 'GET')
+            : Object Name / Table name [required]
+            : Arguments
+            : Callback [optional]
+            
 Direct access executing.
+
 ``` javascript
 var restapi = require('./../../lib/restapi');
   ...
@@ -408,11 +415,36 @@ restapi.execute(
 );
 ```
 
-# Relation
+Execute custom model
+``` javascript
+var restapi = require('./../../lib/restapi');
+  ...
+restapi.execute(
+  // Model method [required]
+  'get',
+  // Model Name [required]
+  'user',
+  // Arguments 
+  { },
+  // Callback
+  function(err, result) {
+
+  }
+);
 ```
-GET: http://localhost:3000/api/user?include=city&relation=user.cityid,city.id
-RESULT: {user: [JSON with city object ]}
-```
+
+## getDB
+Get current database connection object of KNEX instance.
+
+## generateCsrfSecret
+Generate secret key for CSRF Authentication.
+
+## generateCsrfToken
+Generate token for CSRF Authentication.
+Parameter : Secret key (optional)
+
+## isAuthorized
+Check authentication passed or not
 
 # TODO :
 
