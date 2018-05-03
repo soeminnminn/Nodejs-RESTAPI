@@ -12,7 +12,8 @@
       { "name": "admin", "pass": "admin" }
     ],
     "csrf": {
-      "tokenkey": "CSRF-Token",
+      "tokenkey": "X-CSRF-Token",
+      "checkBisicAuth": "true",
       "secrets": [ "DGIgK4BFLwIp5hIMRjnmQj-E" ]
     }
   }
