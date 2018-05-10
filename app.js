@@ -32,7 +32,20 @@ restapi.applyModel([
 
 app.use('/', function(req, res, next) {
   //res.end("" + result);
-  restapi.execute('get', 'user', { 'q': 'From Router!' })
+  // restapi.execute('get', 'user', { 'q': 'From Router!' })
+  //   .then(function(result) {
+  //     res.write(JSON.stringify(result));
+  //     res.end();
+
+  //   }).catch(function(err) {
+  //     console.log(err);
+  //     res.write(JSON.stringify(err));
+  //     res.end();
+  //   });
+  //res.end("It's work!");
+
+  // 
+  restapi.execute('user', { 'where': '`id` = 3' })
     .then(function(result) {
       res.write(JSON.stringify(result));
       res.end();
@@ -42,7 +55,6 @@ app.use('/', function(req, res, next) {
       res.write(JSON.stringify(err));
       res.end();
     });
-  //res.end("It's work!");
 });
 
 module.exports = app.init();
