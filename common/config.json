@@ -13,7 +13,7 @@
     ],
     "csrf": {
       "tokenkey": "X-CSRF-Token",
-      "checkBisicAuth": "true",
+      "checkBasicAuth": true,
       "secrets": [ "DGIgK4BFLwIp5hIMRjnmQj-E" ]
     }
   }
