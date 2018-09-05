@@ -15,9 +15,9 @@ Clone or download project from github.
   },
   "pagesize": 20,
   "database": ["database1", "database2"],
-  "inputTranform": function(req, params) {},
-  "outputTranform": function(req, result) {},
-  "bodyTranform": function(req, body, params) {},
+  "inputTransform": function(req, params) {},
+  "outputTransform": function(req, result) {},
+  "bodyTransform": function(req, body, params) {},
   "modelBasePath": '/path/to/models/',
   "users": [ { "name": "user", "pass": "*****" } ],
   "secrets": [ "secret key" ];
@@ -36,11 +36,11 @@ Clone or download project from github.
 
  - *database* (array) : What databases can access. Multipiles database supports.
 
- - *inputTranform* (function) : Input paramater custom parser.
+ - *inputTransform* (function) : Input paramater custom parser.
 
- - *bodyTranform* (function) : Customize body data.
+ - *bodyTransform* (function) : Customize body data.
 
- - *outTranform* (function) : Output result custom parser.
+ - *outTransform* (function) : Output result custom parser.
 
  - *modelBasePath* (string) : Path of custom models folder.
 
@@ -344,12 +344,11 @@ api.applyModel([
 ## Model Arguments
 
 **args**
-  - *settings*: API config settings object.
-  - *db*: Database connector object (KNEX).
-  - *params*: URL and Query paremeters parsed object.
-  - *req*: Request object.
-  - *res*: Response object.
-  - *next*: Next method.
+  - *getApi()*: Return the API object.
+  - *getSettings()*: Return the API config settings object.
+  - *getDatabase()*: Return the database connector object (KNEX).
+  - *getRequest()*: Return the request object.
+  - *getResponse()*: Return the response object.
 
 **callback**
   Node result callback.
