@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<meta content='IE=edge' http-equiv=X-UA-Compatible>
+<meta content='width=device-width,initial-scale=1' name='viewport'>
+<title>REST API - Readme</title>
+<style type='text/css'>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; word-wrap: break-word; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
+.container { width: 978px; margin: 0 auto; overflow-x: auto; border: 1px solid #eee; font-size: 16px; line-height: 1.5; padding: 8px 45px; border-radius: 0; }
+h1, h2, h3, h4, h5, h6 { margin-top: 24px; margin-bottom: 16px; font-weight: 600; line-height: 1.25; }
+h1, h2 { padding-bottom: 0.3em; border-bottom: 1px solid #eaecef; }
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+.anchor { float: left; padding-right: 4px; margin-left: -20px; line-height: 1; }
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { text-decoration: none; }
+h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { color: #1b1f23; vertical-align: middle; visibility: hidden; }
+svg:not(:root) { overflow: hidden; }
+.octicon { vertical-align: text-bottom; display: inline-block; fill: currentColor; }
+h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { visibility: visible; }
+hr { height: 0.25em; padding: 0; margin: 24px 0; background-color: #e1e4e8; border: 0; }
+p, blockquote, ul, ol, dl, table, pre { margin-top: 0; margin-bottom: 16px; }
+pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: #f6f8fa; border-radius: 3px; word-wrap: normal; }
+tt, code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; border-radius: 3px; }
+pre > code { font-size: 100%; word-break: normal; white-space: pre; }
+pre code, pre tt { display: inline; max-width: auto; padding: 0; margin: 0; overflow: visible; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; }
+blockquote { padding: 0 1em; color: #6a737d; border-left: 0.25em solid #dfe2e5; }
+ul, ol { padding-left: 2em; }
+table { border-spacing: 0; border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+table th, table td { padding: 6px 13px; border: 1px solid #dfe2e5; }
+table th { font-weight: 600; }
+table tr { background-color: #fff; border-top: 1px solid #c6cbd1; }
+table tr:nth-child(2n) { background-color: #f6f8fa; }
+a { color: #0366d6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:active, a:hover { outline-width: 0; }
+</style>
+</head>
+<body>
+<div class='container'>
+<h1 id="node-js-rest-api"><a id='user-content-node-js-rest-api' class='anchor' href='#node-js-rest-api' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Node JS REST API</h1>
+<h1 id="installation"><a id='user-content-installation' class='anchor' href='#installation' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Installation</h1>
+<p>Clone or download project from github.</p>
+<h1 id="config"><a id='user-content-config' class='anchor' href='#config' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Config</h1>
+<p>Extend on knex config. see <a href="https://knexjs.org/#Installation-node">Knexjs</a></p>
+<pre><code class="javascript language-javascript">{
+  "pagesize": 20,
+  "maindb": "database1",
+  "database": ["database1", "database2"],
+  "modelBasePath": '/path/to/models/',
+  "authHandler": function(req, res, next) {},
+  "inputHandler": function(req, res, done) {},
+  "resultHandler": function(result, req, res, done) {},
+  "errorHandler": function(error, req, res, done) {};
+}</code></pre>
+<h3 id="required"><a id='user-content-required' class='anchor' href='#required' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>required</h3>
+<p>see <a href="https://knexjs.org/#Installation-node">Knexjs</a></p>
+<h3 id="optionals"><a id='user-content-optionals' class='anchor' href='#optionals' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>optionals</h3>
+<ul>
+<li><p><em>pagesize</em> (number) : Page size of record. Default is 20.</p></li>
+<li><p><em>maindb</em> (string) : What database is main access.</p></li>
+<li><p><em>database</em> (array) : What databases can access. Multipiles database supports.</p></li>
+<li><p><em>modelBasePath</em> (string) : Path of custom models folder.</p></li>
+<li><p><em>authHandler</em> (function) : Handle custom authentication.</p></li>
+<li><p><em>inputHandler</em> (function) : Customize body data handler.</p></li>
+<li><p><em>resultHandler</em> (function) : Output result custom handler.</p></li>
+<li><p><em>errorHandler</em> (function) : Error custom handler.</p></li>
+</ul>
+<h1 id="url-format"><a id='user-content-url-format' class='anchor' href='#url-format' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>URL Format</h1>
+<pre><code>http://localhost:3000/api[/database]/table[/filters][?parameters]
+http://localhost:3000/api[/database]/table[/table1[/table2[/...]]][?parameters]</code></pre>
+<h3 id="examples"><a id='user-content-examples' class='anchor' href='#examples' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Examples</h3>
+<p>Table User:</p>
+<table>
+<thead>
+<tr>
+<th id="column">Column</th>
+<th id="type">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+</tr>
+<tr>
+<td>name</td>
+<td>text</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>text</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>text</td>
+</tr>
+<tr>
+<td>password</td>
+<td>text</td>
+</tr>
+</tbody>
+</table>
+<pre><code>GET: http://localhost:3000/api/user/1
+SQL: SELECT * FROM restapi.user WHERE id = 1
+
+RESULT: {user: [JSON]}</code></pre>
+<pre><code>GET: http://localhost:3000/api/user/1,2
+SQL: SELECT * FROM restapi.user WHERE id IN (1,2)
+
+RESULT: {user: [JSON]}</code></pre>
+<h1 id="query-parameters"><a id='user-content-query-parameters' class='anchor' href='#query-parameters' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Query Parameters</h1>
+<h2 id="filter"><a id='user-content-filter' class='anchor' href='#filter' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>filter</h2>
+<p>Selections parameter of query.</p>
+<ul>
+<li><em>cs</em>: contain string (string contains value)</li>
+<li><em>sw</em>: start with (string starts with value)</li>
+<li><em>ew</em>: end with (string end with value)</li>
+<li><em>eq</em>: equal (string or number matches exactly)</li>
+<li><em>lt</em>: lower than (number is lower than value)</li>
+<li><em>le</em>: lower or equal (number is lower than or equal to value)</li>
+<li><em>ge</em>: greater or equal (number is higher than or equal to value)</li>
+<li><em>gt</em>: greater than (number is higher than value)</li>
+<li><em>bt</em>: between (number is between two comma separated values)</li>
+<li><em>in</em>: in (number is in comma separated list of values)</li>
+<li><em>is</em>: is null (field contains "NULL" value)</li>
+</ul>
+<pre><code>GET: http://localhost:3000/api/user?filter=id,eq,1
+SQL: SELECT * FROM user WHERE id = 1
+
+RESULT: {user: [JSON]}</code></pre>
+<pre><code>GET: http://localhost:3000/api/user?filter=id,in,[1,2]
+SQL: SELECT * FROM user WHERE id IN (1, 2)
+
+RESULT: {user: [JSON]}</code></pre>
+<pre><code>GET: http://localhost:3000/api/user?filter=id,in,[1,2],or,name,sw,m
+SQL: SELECT * FROM user WHERE id IN (1, 2) OR name LIKE 'm%'
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="columns"><a id='user-content-columns' class='anchor' href='#columns' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>columns</h2>
+<p>With the "<em>columns</em>" parameter you can select specific columns.</p>
+<pre><code>GET: http://localhost:3000/api/user?columns=name,firstname,lastname
+SQL: SELECT name, firstname, lastname FROM user
+
+RESULT: {user: [JSON]}</code></pre>
+<h3 id="-sign-for-alias"><a id='user-content--sign-for-alias' class='anchor' href='#-sign-for-alias' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>'@' sign for alias</h3>
+<pre><code>GET: http://localhost:3000/api/user?columns=name,firstname@name,lastname@familyname
+SQL: SELECT name, firstname AS name, lastname AS familyname FROM user
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="distinct"><a id='user-content-distinct' class='anchor' href='#distinct' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>distinct</h2>
+<p>The SELECT DISTINCT statement is used to return only distinct (different) values.</p>
+<pre><code>GET: http://localhost:3000/api/user?distinct
+SQL: SELECT DISTINCT * FROM user
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="exclude"><a id='user-content-exclude' class='anchor' href='#exclude' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>exclude</h2>
+<p>Remove certain columns.</p>
+<pre><code>GET: http://localhost:3000/api/user?exclude=password
+SQL: SELECT name, firstname, lastname FROM user
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="order"><a id='user-content-order' class='anchor' href='#order' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>order</h2>
+<p>With the "order" parameter you can sort. By default the sort is in ascending order, but by specifying "desc" this can be reversed:</p>
+<pre><code>GET: http://localhost:3000/api/user?order=name
+SQL: SELECT * FROM user ORDER BY name
+
+RESULT: {user: [JSON]}</code></pre>
+<pre><code>GET: http://localhost:3000/api/user?order=name,desc
+SQL: SELECT * FROM user ORDER BY name DESC
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="page"><a id='user-content-page' class='anchor' href='#page' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>page</h2>
+<p>The "page" parameter holds the requested page. The default page size is 20.</p>
+<pre><code>GET: http://localhost:3000/api/user?page=0
+SQL: SELECT * FROM user OFFSET 0 LIMIT 20
+
+RESULT: {user: [JSON]}</code></pre>
+<pre><code>GET: http://localhost:3000/api/user?page=0,50
+SQL: SELECT * FROM user OFFSET 0 LIMIT 50
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="start"><a id='user-content-start' class='anchor' href='#start' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>start</h2>
+<pre><code>GET: http://localhost:3000/api/user?start=10
+SQL: SELECT * FROM user OFFSET 10
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="length"><a id='user-content-length' class='anchor' href='#length' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>length</h2>
+<pre><code>GET: http://localhost:3000/api/user?length=50
+SQL: SELECT * FROM user LIMIT 50
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="join"><a id='user-content-join' class='anchor' href='#join' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>join</h2>
+<pre><code>GET: http://localhost:3000/api/user?join=left,city,cityid,eq,city.id
+SQL: SELECT * FROM user LEFT JOIN city ON cityid = city.id
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="group"><a id='user-content-group' class='anchor' href='#group' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>group</h2>
+<pre><code>GET: http://localhost:3000/api/user?group=type
+SQL: SELECT * FROM user GROUP BY type
+
+RESULT: {user: [JSON]}</code></pre>
+<h2 id="having"><a id='user-content-having' class='anchor' href='#having' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>having</h2>
+<pre><code>GET: http://localhost:3000/api/user?group=type&amp;having=type,eq,user
+SQL: SELECT * FROM user GROUP BY type HAVING type = 'user'
+
+RESULT: {user: [JSON]}</code></pre>
+<h1 id="insert"><a id='user-content-insert' class='anchor' href='#insert' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>INSERT</h1>
+<pre><code>POST: http://localhost:3000/api/user
+BODY: { "name": "helloworld","firstname": "hello", "lastname": "world", "password": "******" }
+SQL: INSERT INTO user (name, firstname, lastname, password) VALUES ('helloworld', 'hello', 'world', "******")
+
+RESULT: {inserted id}</code></pre>
+<h1 id="update"><a id='user-content-update' class='anchor' href='#update' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>UPDATE</h1>
+<pre><code>PATCH: http://localhost:3000/api/user/1
+BODY: { "name": "helloworld","firstname": "hello", "lastname": "world", "password": "******" }
+SQL: UPDATE user SET name = 'helloworld', firstname = 'hello', lastname = 'world', password = '******' WHERE id = 1
+
+RESULT: {number of affected rows}</code></pre>
+<h1 id="save"><a id='user-content-save' class='anchor' href='#save' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>SAVE</h1>
+<pre><code>PUT: http://localhost:3000/api/user
+BODY: { "id": 1, "name": "helloworld","firstname": "hello", "lastname": "world", "password": "******" }
+SQL: UPDATE user SET name = 'helloworld', firstname = 'hello', lastname = 'world', password = '******' WHERE id = 1
+
+     [When UPDATE not success]
+     INSERT INTO user (name, firstname, lastname, password) VALUES ('helloworld', 'hello', 'world', "******")
+
+RESULT: {number of affected rows}</code></pre>
+<h1 id="delete"><a id='user-content-delete' class='anchor' href='#delete' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>DELETE</h1>
+<pre><code>DELETE: http://localhost:3000/api/user/1
+SQL: DELETE FROM user WHERE id = 1
+
+RESULT: {number of affected rows}</code></pre>
+<h1 id="models"><a id='user-content-models' class='anchor' href='#models' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Models</h1>
+<p>Add custom model.</p>
+<p>After call api.init(config).</p>
+<p>Can apply a model by name only. If you add by name only, you must set 'modelBasePath' in config.</p>
+<pre><code class="javascript language-javascript">api.applyModel('modelName#1');</code></pre>
+<p>Can apply a model object:</p>
+<pre><code class="javascript language-javascript">api.applyModel('modelName#2', { model object });</code></pre>
+<p>Can apply a model object:</p>
+<pre><code class="javascript language-javascript">api.applyModel({ "name": "modelName#3", "model": { model object } });</code></pre>
+<p>Can apply many model objects:</p>
+<pre><code class="javascript language-javascript">api.applyModel(
+  { "name": "modelName#4", "model": { model object } },
+  { "name": "modelName#5", "model": { model object } },
+  { "name": "modelName#6", "model": { model object } }
+);</code></pre>
+<p>Can apply models as array:</p>
+<pre><code class="javascript language-javascript">api.applyModel([
+  { "name": "modelName#7", "model": { model object } },
+  { "name": "modelName#8", "model": { model object } },
+  { "name": "modelName#9", "model": { model object } }
+]);</code></pre>
+<h2 id="model-arguments"><a id='user-content-model-arguments' class='anchor' href='#model-arguments' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Model Arguments</h2>
+<p><strong>args</strong></p>
+<ul>
+<li><em>knex</em>: Return the Knex object.</li>
+<li><em>getApi()</em>: Return the API object.</li>
+<li><em>getSettings()</em>: Return the API config settings object.</li>
+<li><em>getDb()</em>: Return the database connector object (KNEX).</li>
+<li><em>getRequest()</em>: Return the request object.</li>
+<li><em>getResponse()</em>: Return the response object.</li>
+</ul>
+<p><strong>callback</strong><br />
+  Node result callback.</p>
+<h1 id="functions"><a id='user-content-functions' class='anchor' href='#functions' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Functions</h1>
+<h2 id="init"><a id='user-content-init' class='anchor' href='#init' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>init</h2>
+<p>Initialize api library. <br />
+Parameter : Config</p>
+<h2 id="getdb"><a id='user-content-getdb' class='anchor' href='#getdb' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>getDB</h2>
+<ul>
+<li>paremeters<ul>
+<li>tablename {string} optional</li></ul></li>
+<li>return <ul>
+<li>KNEX object<br />
+Get current database connection object of KNEX instance.</li></ul></li>
+</ul>
+<h2 id="getknex"><a id='user-content-getknex' class='anchor' href='#getknex' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>getKnex</h2>
+<p>Get current database connection object of KNEX instance.</p>
+<h2 id="applymodel"><a id='user-content-applymodel' class='anchor' href='#applymodel' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>applyModel</h2>
+<ul>
+<li>paremeters<ul>
+<li>name {string|object} Model name or model object.<br />
+Apply custom models to api.</li></ul></li>
+</ul>
+<h2 id="execute"><a id='user-content-execute' class='anchor' href='#execute' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>execute</h2>
+<ul>
+<li>paremeters<ul>
+<li>name {string} Table name or model name<br />
+Execute call.</li></ul></li>
+</ul>
+<h1 id="todo-"><a id='user-content-todo-' class='anchor' href='#todo-' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>TODO :</h1>
+<ul>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;"> Relational Supports</li>
+</ul>
+<h1 id="refrences"><a id='user-content-refrences' class='anchor' href='#refrences' aria-hidden='true'><svg aria-hidden='true' class='octicon octicon-link' height='16' version='1.1' viewBox='0 0 16 16' width='16'><path fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'></path></svg></a>Refrences</h1>
+<ul>
+<li><a href="http://knexjs.org/">Knexjs</a> : SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, and Oracle.</li>
+<li><a href="https://github.com/mevdschee/php-crud-api/">PHP-CRUD-API</a> : Single file PHP script that adds a REST API to a MySQL 5.5 InnoDB database. PostgreSQL 9.1, MS SQL Server 2012 and SQLite 3.</li>
+<li><a href="https://github.com/jpillora/jquery.rest/">jQuery REST Client</a> : A jQuery plugin for easy consumption of RESTful APIs</li>
+</ul>
+</div>
+</body>
+</html>

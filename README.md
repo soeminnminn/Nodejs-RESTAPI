@@ -4,51 +4,41 @@
 Clone or download project from github.
 
 # Config
+Extend on knex config. see [Knexjs](https://knexjs.org/#Installation-node)
+
 ``` javascript
 {
-  "driver": "mysql",
-  "connection": {
-    "host": "localhost",
-    "user": "root",
-    "password": "******",
-    "database": "main database"
-  },
   "pagesize": 20,
+  "maindb": "database1",
   "database": ["database1", "database2"],
-  "inputTransform": function(req, params) {},
-  "outputTransform": function(req, result) {},
-  "bodyTransform": function(req, body, params) {},
   "modelBasePath": '/path/to/models/',
-  "users": [ { "name": "user", "pass": "*****" } ],
-  "secrets": [ "secret key" ];
-  "isAuthorized": function(credentials) {}
+  "authHandler": function(req, res, next) {},
+  "inputHandler": function(req, res, done) {},
+  "resultHandler": function(result, req, res, done) {},
+  "errorHandler": function(error, req, res, done) {};
 }
 ```
 ### required
 
- - *driver* (mysql, mssql, postgresql, sqlite3, oracle) : What driver you will used.
-
- - *connection* : Config for database connection.
+ see [Knexjs](https://knexjs.org/#Installation-node)
 
 ### optionals
 
  - *pagesize* (number) : Page size of record. Default is 20.
 
+ - *maindb* (string) : What database is main access.
+
  - *database* (array) : What databases can access. Multipiles database supports.
-
- - *inputTransform* (function) : Input paramater custom parser.
-
- - *bodyTransform* (function) : Customize body data.
-
- - *outTransform* (function) : Output result custom parser.
 
  - *modelBasePath* (string) : Path of custom models folder.
 
- - *users* (Array|object) : Basic authentication users.
+ - *authHandler* (function) : Handle custom authentication.
 
- - *secrets* (Array) : Csrf authentication secret keys.
+ - *inputHandler* (function) : Customize body data handler.
 
- - *isAuthorized* (function) : Custom authentication method.
+ - *resultHandler* (function) : Output result custom handler.
+
+ - *errorHandler* (function) : Error custom handler.
 
 
 # URL Format
@@ -71,13 +61,13 @@ lastname | text
 password | text
 
 ```
-GET: http://localhost:3000/api/restapi/user/1
+GET: http://localhost:3000/api/user/1
 SQL: SELECT * FROM restapi.user WHERE id = 1
 
 RESULT: {user: [JSON]}
 ```
 ```
-GET: http://localhost:3000/api/restapi/user/1,2
+GET: http://localhost:3000/api/user/1,2
 SQL: SELECT * FROM restapi.user WHERE id IN (1,2)
 
 RESULT: {user: [JSON]}
@@ -119,23 +109,6 @@ SQL: SELECT * FROM user WHERE id IN (1, 2) OR name LIKE 'm%'
 RESULT: {user: [JSON]}
 ```
 
-## where / w
-
-Where condition of sql query (URL encoded).
-
-```
-GET: http://localhost:3000/api/user?where=id=1
-SQL: SELECT * FROM user WHERE id = 1
-
-RESULT: {user: [JSON]}
-```
-```
-GET: http://localhost:3000/api/user?w=id=1
-SQL: SELECT * FROM user WHERE id = 1
-
-RESULT: {user: [JSON]}
-```
-
 ## columns
 
 With the "*columns*" parameter you can select specific columns.
@@ -143,6 +116,15 @@ With the "*columns*" parameter you can select specific columns.
 ```
 GET: http://localhost:3000/api/user?columns=name,firstname,lastname
 SQL: SELECT name, firstname, lastname FROM user
+
+RESULT: {user: [JSON]}
+```
+
+### '@' sign for alias
+
+```
+GET: http://localhost:3000/api/user?columns=name,firstname@name,lastname@familyname
+SQL: SELECT name, firstname AS name, lastname AS familyname FROM user
 
 RESULT: {user: [JSON]}
 ```
@@ -167,18 +149,6 @@ GET: http://localhost:3000/api/user?exclude=password
 SQL: SELECT name, firstname, lastname FROM user
 
 RESULT: {user: [JSON]}
-```
-
-## include
-
-Include other tables.
-
-```
-GET: http://localhost:3000/api/user?include=city
-SQL: SELECT * FROM user
-SQL1: SELECT * FROM city
-
-RESULT: {user: [JSON], city: [JSON]}
 ```
 
 ## order
@@ -344,37 +314,15 @@ api.applyModel([
 ## Model Arguments
 
 **args**
+  - *knex*: Return the Knex object.
   - *getApi()*: Return the API object.
   - *getSettings()*: Return the API config settings object.
-  - *getDatabase()*: Return the database connector object (KNEX).
+  - *getDb()*: Return the database connector object (KNEX).
   - *getRequest()*: Return the request object.
   - *getResponse()*: Return the response object.
 
 **callback**
   Node result callback.
-
-# Authentication
-
-## basic authentication
-You will apply 'users' in api config.
-
-## Csrf authentication
-Use csrf token in api. You will apply 'secrets' in api config. 'users' config also required.
-
-### Csrf Secret generator
-```
-GET: /api/--gensecret
-RESULT: { "secret": "secret key" }
-```
-
-### Csrf token generator
-```
-GET: /api/--gentoken?secret=******
-RESULT: { "token": "token key" }
-```
-
-## custom authentication
-You will apply 'isAuthorized' method in api config.
 
 # Functions
 
@@ -382,75 +330,27 @@ You will apply 'isAuthorized' method in api config.
 Initialize api library. 
 Parameter : Config
 
-## execute
-Parameters  : Method [optional] (default: 'GET')
-            : Object Name / Table name [required]
-            : Arguments
-            : Callback [optional]
-
-Direct access executing.
-
-``` javascript
-var restapi = require('./../../lib/restapi');
-  ...
-restapi.execute(
-  // Method [optional] (default: 'GET')
-  'GET',
-  // Object Name / Table name [required]
-  'user',
-  // Arguments
-  {
-    'data': {},
-    'columns': [],
-    'where': [],
-    'join': '',
-    'group': '',
-    'having': '',
-    'order': '',
-    'start': 0,
-    'length': 10
-  },
-  // Callback
-  function(err, result) {
-
-  }
-);
-```
-
-Execute custom model
-``` javascript
-var restapi = require('./../../lib/restapi');
-  ...
-restapi.execute(
-  // Model method [required]
-  'get',
-  // Model Name [required]
-  'user',
-  // Arguments 
-  { },
-  // Callback
-  function(err, result) {
-
-  }
-);
-```
-
 ## getDB
+- paremeters
+  - tablename {string} optional
+- return 
+  - KNEX object
 Get current database connection object of KNEX instance.
 
-## generateCsrfSecret
-Generate secret key for CSRF Authentication.
+## getKnex
+Get current database connection object of KNEX instance.
 
-## generateCsrfToken
-Generate token for CSRF Authentication.
-Parameter : Secret key (optional)
+## applyModel
+- paremeters
+  - name {string|object} Model name or model object.
+Apply custom models to api.
 
-## isAuthorized
-Check authentication passed or not
+## execute
+- paremeters
+  - name {string} Table name or model name
+Execute call.
 
 # TODO :
-
-  - [ ] Oracle filters
 
   - [ ] Relational Supports
 

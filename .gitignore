@@ -60,5 +60,14 @@ typings/
 # Temp directory
 temp
 
+# Backup directory
+_bak
+
+# Compiled output directory
+dist
+
 # Wtf Mac
 .DS_Store
+
+# VS Code workspace
+*.code-workspace

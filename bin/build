@@ -1,0 +1,103 @@
+#!/usr/bin/env node
+
+/**
+ * Compile typescript
+ */
+const path = require("path");
+const shell = require("shelljs");
+
+const dir = path.dirname(__dirname);
+
+const colors = {
+  reset: ["\x1b[0m", "\x1b[0m"],
+  bright: ["\x1b[1m", "\x1b[22m"],
+  dim: ["\x1b[2m", "\x1b[22m"],
+  italic: ["\x1b[3m", "\x1b[23m"],
+  underscore: ["\x1b[4m", "\x1b[24m"],
+  blink: ["\x1b[5m", "\x1b[27m"],
+  reverse: ["\x1b[7m", "\x1b[27m"],
+  hidden: ["\x1b[8m", "\x1b[28m"],
+  strikethrough: ["\x1b[9m", "\x1b[29m"],
+
+  fgBlack: ["\x1b[30m", "\x1b[39m"],
+  fgRed: ["\x1b[31m", "\x1b[39m"],
+  fgGreen: ["\x1b[32m", "\x1b[39m"],
+  fgYellow: ["\x1b[33m", "\x1b[39m"],
+  fgBlue: ["\x1b[34m", "\x1b[39m"],
+  fgMagenta: ["\x1b[35m", "\x1b[39m"],
+  fgCyan: ["\x1b[36m", "\x1b[39m"],
+  fgWhite: ["\x1b[37m", "\x1b[39m"],
+  fgGray: ["\x1b[90m", "\x1b[39m"],
+
+  bgBlack: ["\x1b[40m", "\x1b[49m"],
+  bgRed: ["\x1b[41m", "\x1b[49m"],
+  bgGreen: ["\x1b[42m", "\x1b[49m"],
+  bgYellow: ["\x1b[43m", "\x1b[49m"],
+  bgBlue: ["\x1b[44m", "\x1b[49m"],
+  bgMagenta: ["\x1b[45m", "\x1b[49m"],
+  bgCyan: ["\x1b[46m", "\x1b[49m"],
+  bgWhite: ["\x1b[47m", "\x1b[49m"]
+};
+
+Object.keys(colors).forEach((name) => {
+  const code = {};
+  code.name = name;
+  code.open = colors[name][0];
+  code.close = colors[name][1];
+  code.closeRe = new RegExp(code.close.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&"), "g");
+
+  colors[name] = function(str, style) {
+    // const newLinesPresent = !!~str.indexOf("\n");
+    let result = "";
+    if (style) {
+      result = code.open + style.open + str.replace(code.closeRe, code.open) + style.close + code.close;
+    } else {
+      result = code.open + str.replace(code.closeRe, code.open) + code.close;
+    }
+    return result;
+  };
+
+  for (const i in code) {
+    const descriptor = Object.getOwnPropertyDescriptor(code, i);
+    Object.defineProperty(colors[name], i, descriptor);
+  }
+});
+
+function resultOut(result) {
+  if (result.stdout) {
+    console.log(result.stdout);
+  } else if (result.stderr) {
+    console.log(colors.fgRed(result.stderr));
+  }
+  if (result.code == 0) {
+    console.log("> " + colors.fgGreen("Done", colors.bright));
+  }
+}
+
+// Clean Dist
+console.log("> " + colors.fgBlue("** Clean Dist **", colors.bright));
+const cleanRes = shell.rm("-rf", dir + "/dist/*");
+resultOut(cleanRes);
+
+const tsconfig = dir + "/tsconfig.json";
+const tslintconfig = dir + "/tslint.json";
+
+// Build
+console.log("> " + colors.fgBlue("** Build **", colors.bright));
+const tsc = dir + "/node_modules/.bin/tsc";
+const buildRes = shell.exec("'" + tsc + "' -p '" + tsconfig + "'");
+resultOut(buildRes);
+
+// Copy Static Assets
+console.log("> " + colors.fgBlue("** Copy Static Assets **", colors.bright));
+const tsnode = dir + "/node_modules/.bin/ts-node";
+const copyRes = shell.exec("'" + tsnode + "' copyStaticAssets.ts");
+resultOut(copyRes);
+
+// Run tslint
+console.log("> " + colors.fgBlue("** Run tslint **", colors.bright));
+const tslint = dir + "/node_modules/.bin/tslint";
+const tslintRes = shell.exec("'" + tslint + "' -c '" + tslintconfig + "' -p '" + tsconfig + "'");
+resultOut(tslintRes);
+
+console.log("> " + colors.fgGreen("Build Success!", colors.bright));
