@@ -32,7 +32,7 @@
     "@types/shelljs": "^0.8.1",
     "@types/showdown": "^1.9.0",
     "@types/sqlite3": "^3.1.5",
-    "mocha": "^6.0.2",
+    "mocha": "^10.2.0",
     "shelljs": "^0.8.3",
     "showdown": "^1.9.0",
     "supertest": "^4.0.0",
